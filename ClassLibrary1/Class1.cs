@@ -12,5 +12,19 @@
 
             return a + b;
         }
+
+        //Criar um método que multiplique 3 numeros
+        //Validar que todos os numero são maiores do que zero (mostrar exception)
+
+
+
+        //Criar um método que divida 2 numeros
+        //Validar que todos segundo numero maior do que zero (mostrar exception)
+        //Validar que nenhum numero seja negativo
+
+
+        //Criar um método que divida 2 numeros sendo que o primeiro é o resultado da soma do primeiro metodo
+        //Validar que todos segundo numero maior do que zero (mostrar exception)
+        //Validar que nenhum numero seja negativo
     }
 }

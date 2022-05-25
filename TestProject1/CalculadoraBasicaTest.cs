@@ -8,6 +8,10 @@ namespace Calculadora.Tests
 {
     public class CalculadoraBasicaTest
     {
+        private CalculadoraBasica _calculadoraBasica;
+
+        public CalculadoraBasicaTest() => _calculadoraBasica = new CalculadoraBasica();
+
         [Fact]
         [Trait("Soma", "Soma dois números")]
         public void SomarDoisNumeros_SomaDoisNumero_ResultadoEsperado3_Antigo()
@@ -17,10 +21,10 @@ namespace Calculadora.Tests
             //Arrange
             var a = 1;
             var b = 2;
-            var class1 = new CalculadoraBasica();
+            
 
             //Act
-            var soma = class1.SomarDoisNumeros(a, b);
+            var soma = _calculadoraBasica.SomarDoisNumeros(a, b);
 
             //Assert
             Assert.Equal(a + b, soma);
@@ -37,10 +41,10 @@ namespace Calculadora.Tests
             //AAA
 
             //Arrange
-            var class1 = new CalculadoraBasica();
+            
 
             //Act
-            var soma = class1.SomarDoisNumeros(a, b);
+            var soma = _calculadoraBasica.SomarDoisNumeros(a, b);
 
             //Assert
             Assert.Equal(result, soma);
@@ -55,10 +59,10 @@ namespace Calculadora.Tests
             //Arrange
             var a = -50;
             var b = 2;
-            var class1 = new CalculadoraBasica();
+            
 
             //Act
-            var soma = class1.SomarDoisNumeros(a, b);
+            var soma = _calculadoraBasica.SomarDoisNumeros(a, b);
 
             //Assert
             Assert.Equal(-1, soma);
@@ -73,10 +77,10 @@ namespace Calculadora.Tests
             //AAA
 
             //Arrange
-            var class1 = new CalculadoraBasica();
+            
 
             //Act
-            var ex = Assert.Throws<ArgumentException>(() => class1.SomarDoisNumeros(a, b));
+            var ex = Assert.Throws<ArgumentException>(() => _calculadoraBasica.SomarDoisNumeros(a, b));
 
             //Assert
             Assert.Equal(mensagem, ex.Message);
@@ -91,10 +95,10 @@ namespace Calculadora.Tests
             //Arrange
             var a = 1;
             var b = 1001;
-            var class1 = new CalculadoraBasica();
+            
 
             //Act
-            var ex = Assert.Throws<ArgumentException>(() => class1.SomarDoisNumeros(a, b));
+            var ex = Assert.Throws<ArgumentException>(() => _calculadoraBasica.SomarDoisNumeros(a, b));
 
             //Assert
             Assert.Equal("O segundo argumento não pode ser maior do que 1000", ex.Message);
@@ -108,10 +112,10 @@ namespace Calculadora.Tests
             //AAA
 
             //Arrange
-            var class1 = new CalculadoraBasica();
+            
 
             //Act
-            var ex = Assert.Throws<ArgumentException>(() => class1.SomarDoisNumeros(a, b));
+            var ex = Assert.Throws<ArgumentException>(() => _calculadoraBasica.SomarDoisNumeros(a, b));
 
             //Assert
             Assert.Equal(mensagem, ex.Message);
@@ -126,10 +130,10 @@ namespace Calculadora.Tests
             //AAA
 
             //Arrange
-            var class1 = new CalculadoraBasica();
+            
 
             //Act
-            var multiplicacao = class1.MultiplicarNumeros(a, b, c);
+            var multiplicacao = _calculadoraBasica.MultiplicarNumeros(a, b, c);
 
             //Assert
             Assert.Equal(valor, multiplicacao);
@@ -146,10 +150,10 @@ namespace Calculadora.Tests
             //AAA
 
             //Arrange
-            var class1 = new CalculadoraBasica();
+            
 
             //Act
-            var ex = Assert.Throws<ArgumentException>(() => class1.MultiplicarNumeros(a, b, c));
+            var ex = Assert.Throws<ArgumentException>(() => _calculadoraBasica.MultiplicarNumeros(a, b, c));
 
             //Assert
             Assert.Equal(mensagem, ex.Message);
@@ -164,10 +168,10 @@ namespace Calculadora.Tests
             //AAA
 
             //Arrange
-            var class1 = new CalculadoraBasica();
+            
 
             //Act
-            var divisao = class1.DividirNumeros(a, b);
+            var divisao = _calculadoraBasica.DividirNumeros(a, b);
 
             //Assert
             Assert.Equal(valor, divisao);
@@ -180,10 +184,10 @@ namespace Calculadora.Tests
             //AAA
 
             //Arrange
-            var class1 = new CalculadoraBasica();
+            
 
             //Act
-            var ex = Assert.Throws<ArgumentException>(() => class1.DividirNumeros(a, b));
+            var ex = Assert.Throws<ArgumentException>(() => _calculadoraBasica.DividirNumeros(a, b));
 
             //Assert
             Assert.Equal(mensagem, ex.Message);
@@ -198,10 +202,10 @@ namespace Calculadora.Tests
             //AAA
 
             //Arrange
-            var class1 = new CalculadoraBasica();
+            
 
             //Act
-            var ex = Assert.Throws<ArgumentException>(() => class1.DividirNumeros(a, b));
+            var ex = Assert.Throws<ArgumentException>(() => _calculadoraBasica.DividirNumeros(a, b));
 
             //Assert
             Assert.Equal(mensagem, ex.Message);
@@ -216,10 +220,10 @@ namespace Calculadora.Tests
             //AAA
 
             //Arrange
-            var class1 = new CalculadoraBasica();
+            
 
             //Act
-            var divisao = class1.DividirSoma(a, b, c);
+            var divisao = _calculadoraBasica.DividirSoma(a, b, c);
 
             //Assert
             Assert.Equal(valor, divisao);
@@ -230,10 +234,10 @@ namespace Calculadora.Tests
         {
             //Arrange
             var lista = new List<int> { 1, 2, 3 };
-            var class1 = new CalculadoraBasica();
+            
 
             //Act
-            var soma = class1.SomarLista(lista);
+            var soma = _calculadoraBasica.SomarLista(lista);
 
             //Assert
             Assert.Equal(lista.Sum(), soma);
@@ -244,10 +248,10 @@ namespace Calculadora.Tests
         {
             //Arrange
             var lista = new List<int> { };
-            var class1 = new CalculadoraBasica();
+            
 
             //Act
-            var ex = Assert.Throws<ArgumentException>(() => class1.SomarLista(lista));
+            var ex = Assert.Throws<ArgumentException>(() => _calculadoraBasica.SomarLista(lista));
 
             //Assert
             Assert.Equal("Lista vazía", ex.Message);
@@ -259,10 +263,10 @@ namespace Calculadora.Tests
         {
             //Arrange
             var lista = new List<int> { 0, 0 };
-            var class1 = new CalculadoraBasica();
+            
 
             //Act
-            var ex = Assert.Throws<ArgumentException>(() => class1.SomarLista(lista));
+            var ex = Assert.Throws<ArgumentException>(() => _calculadoraBasica.SomarLista(lista));
 
             //Assert
             Assert.Equal("Lista com elementos inválidos", ex.Message);
@@ -275,13 +279,94 @@ namespace Calculadora.Tests
             //AAA
 
             //Arrange
-            var class1 = new CalculadoraBasica();
+            
 
             //Act
-            var soma = class1.SomarLista(lista);
+            var soma = _calculadoraBasica.SomarLista(lista);
 
             //Assert
             Assert.Equal(valor, soma);
+        }
+
+        [Fact]
+        public void SubtrairNumeros_SubtraiDoisNumeros_RetornaSubtracao()
+        {
+            //Arrange
+            
+
+            //Act
+            var subtracao = _calculadoraBasica.SubtrairNumeros(2, 105);
+
+            //Assert
+            Assert.Equal(103, subtracao);
+        }
+
+
+        [Fact]
+        public void SubtrairNumeros_SubtraiDoisNumerosDeveEstarNoIntervalo_RetornaSubtracao()
+        {
+            //Arrange
+            
+
+            //Act
+            var subtracao = _calculadoraBasica.SubtrairNumeros(2, 300);
+
+            //Assert
+            Assert.InRange(subtracao, 1, 500);
+        }
+
+
+        [Theory]
+        [InlineData(3, 1, "Parámetro inválido")]
+        [InlineData(100, 99, "Parámetro inválido")]
+        public void SubtrairNumeros_ArgumentoInvalidoQuandoSegundoParametroMenorDoQuePrimeiro_RetornaArgumentException(int a, int b, string mensagem)
+        {
+            //AAA
+
+            //Arrange
+            
+
+            //Act
+            var ex = Assert.Throws<ArgumentException>(() => _calculadoraBasica.SubtrairNumeros(a, b));
+
+            //Assert
+            Assert.Equal(mensagem, ex.Message);
+        }
+
+
+        [Theory]
+        [InlineData(-3, 5, "Parámetro inválido")]
+        [InlineData(-2, -1, "Parámetro inválido")]
+        public void SubtrairNumeros_ArgumentoInvalidoQuandoParametroNegativo_RetornaArgumentException(int a, int b, string mensagem)
+        {
+            //AAA
+
+            //Arrange
+            
+
+            //Act
+            var ex = Assert.Throws<ArgumentException>(() => _calculadoraBasica.SubtrairNumeros(a, b));
+
+            //Assert
+            Assert.Equal(mensagem, ex.Message);
+        }
+
+
+        [Theory]
+        [InlineData(1500, 1600, "Parámetro inválido")]
+        [InlineData(80, 99, "Parámetro inválido")]
+        public void SubtrairNumeros_ArgumentoInvalidoQuandoSegundoParametroForaDoIntervalo_RetornaArgumentException(int a, int b, string mensagem)
+        {
+            //AAA
+
+            //Arrange
+            
+
+            //Act
+            var ex = Assert.Throws<ArgumentException>(() => _calculadoraBasica.SubtrairNumeros(a, b));
+
+            //Assert
+            Assert.Equal(mensagem, ex.Message);
         }
 
         private static IEnumerable<object[]> ListaDeNumeros()

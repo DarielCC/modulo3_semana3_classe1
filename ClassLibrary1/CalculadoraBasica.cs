@@ -1,6 +1,6 @@
 ﻿namespace Calculadora.Library
 {
-    public class CalculadoraBasica
+    public class CalculadoraBasica : ICalculadoraBasica
     {
         public int SomarDoisNumeros(int a, int b)
         {
@@ -49,6 +49,16 @@
                 throw new ArgumentException("Lista com elementos inválidos");
 
             return lista.Sum();
+        }
+
+        //A resta deve estar entre 1 e 500
+        public decimal SubtrairNumeros(int a, int b)
+        {
+            if (b < a) throw new ArgumentException("Parámetro inválido");
+            if(a < 0 || b < 0) throw new ArgumentException("Parámetro inválido");
+            if(b < 100 || b > 1000) throw new ArgumentException("Parámetro inválido");
+
+            return b - a;
         }
     }
 }

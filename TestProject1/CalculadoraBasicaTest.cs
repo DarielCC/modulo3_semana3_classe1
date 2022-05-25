@@ -1,6 +1,8 @@
 using System;
 using Xunit;
 using Calculadora.Library;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Calculadora.Tests
 {
@@ -221,6 +223,73 @@ namespace Calculadora.Tests
 
             //Assert
             Assert.Equal(valor, divisao);
+        }
+
+        [Fact]
+        public void SomarLista_SomaDosNumerosDeUmaLista_RetornarSoma()
+        {
+            //Arrange
+            var lista = new List<int> { 1, 2, 3 };
+            var class1 = new CalculadoraBasica();
+
+            //Act
+            var soma = class1.SomarLista(lista);
+
+            //Assert
+            Assert.Equal(lista.Sum(), soma);
+        }
+
+        [Fact]
+        public void SomarLista_ArgumentoInvalidoQuandoListaVazia_RetornaArgumentException()
+        {
+            //Arrange
+            var lista = new List<int> { };
+            var class1 = new CalculadoraBasica();
+
+            //Act
+            var ex = Assert.Throws<ArgumentException>(() => class1.SomarLista(lista));
+
+            //Assert
+            Assert.Equal("Lista vazía", ex.Message);
+        }
+
+
+        [Fact]
+        public void SomarLista_ArgumentoInvalidoQuandoNumerosDaListaEmZero_RetornaArgumentException()
+        {
+            //Arrange
+            var lista = new List<int> { 0, 0 };
+            var class1 = new CalculadoraBasica();
+
+            //Act
+            var ex = Assert.Throws<ArgumentException>(() => class1.SomarLista(lista));
+
+            //Assert
+            Assert.Equal("Lista com elementos inválidos", ex.Message);
+        }
+
+        [Theory]
+        [MemberData(nameof(ListaDeNumeros))]
+        public void SomarLista_SomaValoresDeUmaLista_RetornarSoma(IEnumerable<int> lista, int valor)
+        {
+            //AAA
+
+            //Arrange
+            var class1 = new CalculadoraBasica();
+
+            //Act
+            var soma = class1.SomarLista(lista);
+
+            //Assert
+            Assert.Equal(valor, soma);
+        }
+
+        private static IEnumerable<object[]> ListaDeNumeros()
+        {
+            yield return new object[] { new List<int> { 1, 2, 3 }, 6 };
+            yield return new object[] { new List<int> { 4, 5, 6 }, 15 };
+            yield return new object[] { new List<int> { 7, 8, 9 }, 24 };
+            yield return new object[] { new List<int> { 0, 0, 9 }, 9 };
         }
     }
 }

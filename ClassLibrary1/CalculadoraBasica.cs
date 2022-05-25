@@ -40,5 +40,15 @@
 
         public decimal DividirSoma(int a, int b, int c) 
             => DividirNumeros(SomarDoisNumeros(a, b), c);
+
+        public decimal SomarLista(IEnumerable<int> lista)
+        {
+            if (!lista.Any())
+                throw new ArgumentException("Lista vazía");
+            if (!lista.Any(l => l > 0))
+                throw new ArgumentException("Lista com elementos inválidos");
+
+            return lista.Sum();
+        }
     }
 }
